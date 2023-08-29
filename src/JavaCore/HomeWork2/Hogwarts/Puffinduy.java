@@ -11,20 +11,17 @@ public class Puffinduy extends Hogwarts{
         this.loyalty = loyalty;
         this.honesty = honesty;
     }
+    public int calculateSum() {
+        int sum = getHardLove() + getLoyalty() + getHonesty();
+        return sum;
+    }
 
-    public void compare(Puffinduy student1, Puffinduy student2) {
-        int sum1 = student1.hardLove + student1.loyalty + student1.honesty;
-        int sum2 = student2.hardLove + student2.loyalty + student2.honesty;
-        if (sum1 > sum2) {
-            System.out.println("Студент: " + student1.getFullName() + " лучше, чем - " + student2.getFullName());
+    public void compare(Puffinduy student2) {
+        if (this.calculateSum() > student2.calculateSum()) {
+            System.out.println("Студент: " + this.getFullName() + " лучше, чем - " + student2.getFullName());
         } else
-            System.out.println("Студент: " + student2.getFullName() + " лучше, чем - " + student1.getFullName());
+            System.out.println("Студент: " + student2.getFullName() + " лучше, чем - " + this.getFullName());
     }
-    public void studentDiscription() {
-        System.out.println("Студент: " + getFullName() + " Колдовство:" + getWitchcraft() + " Трансгрессия: " + getTransgression() +
-                " Трудолюбие: " + getHardLove() + " Верность: " + getLoyalty() + " Честность: " + getHonesty());
-    }
-
     public int getHardLove() {
         return hardLove;
     }
@@ -35,5 +32,9 @@ public class Puffinduy extends Hogwarts{
 
     public int getHonesty() {
         return honesty;
+    }
+    public void studentDiscription() {
+        System.out.println(super.toString() + ", Трудолюбие: " + getHardLove() + ", Верность: " + getLoyalty()
+                + ", Честность: " + getHonesty() + ".");
     }
 }

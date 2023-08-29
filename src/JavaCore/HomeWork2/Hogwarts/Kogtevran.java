@@ -13,21 +13,17 @@ public class Kogtevran extends Hogwarts{
         this.funny = funny;
         this.creation = creation;
     }
+    public int calculateSum() {
+        int sum = getMind() + getWisdom() + getFunny() + getCreation();
+        return sum;
+    }
 
-    public void compare(Kogtevran student1, Kogtevran student2) {
-        int sum1 = student1.mind + student1.wisdom + student1.funny + student1.creation;
-        int sum2 = student2.mind + student2.wisdom + student2.funny + student2.creation;
-        if (sum1 > sum2) {
-            System.out.println("Студент: " + student1.getFullName() + " лучше, чем - " + student2.getFullName());
+    public void compare(Kogtevran student2) {
+        if (this.calculateSum() > student2.calculateSum()) {
+            System.out.println("Студент: " + this.getFullName() + " лучше, чем - " + student2.getFullName());
         } else
-            System.out.println("Студент: " + student2.getFullName() + " лучше, чем - " + student1.getFullName());
+            System.out.println("Студент: " + student2.getFullName() + " лучше, чем - " + this.getFullName());
     }
-
-    public void studentDiscription() {
-        System.out.println("Студент: " + getFullName() + " Колдовство: " + getWitchcraft() + " Трансгрессия: " + getTransgression() +
-                " Ум: " + getMind() + " Мудрость:" + getWisdom() + " Остроумие: " + getFunny() + " Творчество: " + getCreation());
-    }
-
     public int getMind() {
         return mind;
     }
@@ -42,5 +38,9 @@ public class Kogtevran extends Hogwarts{
 
     public int getCreation() {
         return creation;
+    }
+    public void studentDiscription() {
+        System.out.println(super.toString() + ", Ум: " + getMind() + ", Мудрость:" + getWisdom() + ", Остроумие: " + getFunny()
+                + ", Творчество: " + getCreation() + ".");
     }
 }

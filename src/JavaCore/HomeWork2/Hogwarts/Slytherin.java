@@ -15,22 +15,16 @@ public class Slytherin extends Hogwarts {
         this.resourceful = resourceful;
         this.wishPower = wishPower;
     }
-
-    public void compare(Slytherin student1, Slytherin student2) {
-        int sum1 = student1.cunning + student1.determination + student1.ambition + student1.resourceful + student1.wishPower;
-        int sum2 = student2.cunning + student2.determination + student2.ambition + student2.resourceful + student2.wishPower;
-        if (sum1 > sum2) {
-            System.out.println("Студент: " + student1.getFullName() + " лучше, чем - " + student2.getFullName());
+    public int calculateSum() {
+        int sum = getCunning() + getDetermination() + getAmbition() + getResourceful() + getWishPower();
+        return sum;
+    }
+    public void compare(Slytherin student2) {
+        if (this.calculateSum() > student2.calculateSum()) {
+            System.out.println("Студент: " + this.getFullName() + " лучше, чем - " + student2.getFullName());
         } else
-            System.out.println("Студент: " + student2.getFullName() + " лучше, чем - " + student1.getFullName());
+            System.out.println("Студент: " + student2.getFullName() + " лучше, чем - " + this.getFullName());
     }
-
-    public void studentDiscription() {
-        System.out.println("Студент: " + getFullName() + " Колдовство: " + getWishPower() + " Трансгрессия: " + getTransgression()
-                + " Хитрость: " + getCunning() + " Решительность: " + getDetermination() + " Амбициозность" + getAmbition() + " Находчивость: "
-                + getTransgression() + " Жажда власти: " + getWishPower());
-    }
-
     public int getCunning() {
         return cunning;
     }
@@ -49,5 +43,9 @@ public class Slytherin extends Hogwarts {
 
     public int getWishPower() {
         return wishPower;
+    }
+    public void studentDiscription() {
+        System.out.println(super.toString() + ", Хитрость: " + getCunning() + ", Решительность: " + getDetermination()
+                + ", Амбициозность " + getAmbition() + ", Находчивость: " + getResourceful() + ", Жажда власти: " + getWishPower() + ".");
     }
 }

@@ -14,9 +14,8 @@ public class Main {
         Puffinduy zahariaSmith = new Puffinduy("Захария Смит", 65,23,65,32,23);
         Puffinduy cedrickDiggory = new Puffinduy("Седрик Диггори", 32,57,90,4,2);
         Puffinduy dzhastinFinFletcher = new Puffinduy("Джастин Финч-Флетчли",43,24,75,28,32);
-        harryPotter.studentDiscription();
-        ronUizly.compare(ronUizly,germionGrager);
-        drakoMalfoi.compareWith(drakoMalfoi,padmaPatil);
+        harryPotter.compare(germionGrager);
+        drakoMalfoi.compareWith(padmaPatil);
+        zahariaSmith.studentDiscription();
     }
-
 }

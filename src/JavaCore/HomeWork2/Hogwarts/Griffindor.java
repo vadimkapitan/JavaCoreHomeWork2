@@ -12,19 +12,17 @@ public class Griffindor extends Hogwarts {
         this.bravery = bravery;
     }
 
-    public void compare(Griffindor student1, Griffindor student2) {
-        int sum1 = student1.nobility + student1.honor + student1.bravery;
-        int sum2 = student2.nobility + student2.honor + student2.bravery;
-        if (sum1 > sum2) {
-            System.out.println("Студент: " + student1.getFullName() + " лучше, чем - " + student2.getFullName());
-        } else
-            System.out.println("Студент: " + student2.getFullName() + " лучше, чем - " + student1.getFullName());
-    }
-    public void studentDiscription() {
-        System.out.println("Студент: " + getFullName() + " Колдовство: " + getWitchcraft() + " Трансгрессия: " + getTransgression() +
-                " Благородство: " + getNobility() + " Честь: " + getHonor() + " Храбрость: " + getBravery());
+    public int calculateSum() {
+        int sum = getNobility() + getHonor() + getBravery();
+        return sum;
     }
 
+    public void compare(Griffindor student2) {
+        if (this.calculateSum() > student2.calculateSum()) {
+            System.out.println("Студент: " + this.getFullName() + " лучше, чем - " + student2.getFullName());
+        } else
+            System.out.println("Студент: " + student2.getFullName() + " лучше, чем - " + this.getFullName());
+    }
     public int getNobility() {
         return nobility;
     }
@@ -35,5 +33,9 @@ public class Griffindor extends Hogwarts {
 
     public int getBravery() {
         return bravery;
+    }
+    public void studentDiscription() {
+        System.out.println(super.toString() + ", Благородство: " + getNobility() + ", Честь: " + getHonor()
+                + ", Храбрость: " + getBravery() + ".");
     }
 }
